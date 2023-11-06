@@ -1,0 +1,30 @@
+.btn-ui {
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: contain;
+    cursor: pointer;
+
+    // modifier
+    &_like {
+        background-image: url('../icons/like.svg');
+        transition: var(--transition-default) all;
+
+        // active status
+        &.active {
+            background-image: url('../icons/like-active.svg');
+        }
+
+        &:hover {
+            background-image: url('../icons/like-active.svg');
+        }
+    }
+}
+@media (max-width: 767px) {
+    .btn-ui {
+        width: 20px;
+        height: 20px;
+    }
+}
