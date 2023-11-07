@@ -6,4 +6,4 @@ import '../icons/like-active.svg';
 
 import 'bootstrap';
 import $ from 'jquery';
-import '../js/script.js'
+import './script.js'

@@ -26,26 +26,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.(eot|ttf|woff|woff2)$/,
-        use: [
-          {
-            loader: 'file-loader', // Загрузчик для обработки шрифтов
-            options: {
-              name: 'fonts/[name].[ext]', // Указываем путь и имя для сохранения шрифтов
-            },
-          },
-        ],
-      },
+        test: /\.ttf?$/i,
+        type: 'asset/resource',
+        dependency: { not: ['url'] },
+      }, 
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'file-loader', // Загрузчик для обработки SVG-файлов
-            options: {
-              name: 'icons/[name].[ext]', // Указываем путь и имя для сохранения иконок
-            },
-          },
-        ],
+        type: 'asset/resource', // Используем тип 'asset/resource' для SVG
       },
     ],
   },
