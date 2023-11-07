@@ -1,12 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './index.js', // Входной файл JavaScript
   output: {
-    filename: 'bundle.js', // Имя собранного JavaScript файла
+    filename: 'bundle.[contenthash].js', // Имя собранного JavaScript файла
     path: path.resolve(__dirname, 'dist'), // Путь для сохранения собранного файла
   },
   module: {
@@ -53,6 +55,10 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({ filename: 'css/stylesheet.css' }), // Плагин для извлечения стилей в отдельный CSS файл
     new CleanWebpackPlugin(), // Плагин для очистки папки 'dist' перед каждой сборкой
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
   ],
   devServer: {
     static: {
@@ -60,5 +66,17 @@ module.exports = {
     },
     compress: true, // Включаем сжатие
     port: 8080, // Указываем порт, на котором будет работать сервер
+  },
+  optimization: {
+    minimize: true, // Включить минимизацию
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          output: {
+            comments: false, // Удалить все комментарии
+          },
+        },
+      }),
+    ],
   },
 };

@@ -1,3 +1,5 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
 // global style
 @import 'global/variables';
 @import 'global/fonts';
@@ -13,3 +15,6 @@
 
 // elements
 @import 'elements/btn-ui';
+
+// responsive
+@import 'responsive';
