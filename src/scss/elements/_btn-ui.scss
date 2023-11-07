@@ -14,7 +14,7 @@
 
         // active status
         &.active {
-            background-image: url('../icons/like-active.svg');
+            background-image: url('../icons/like-active.svg') !important;
         }
 
         &:hover {
@@ -26,5 +26,12 @@
     .btn-ui {
         width: 20px;
         height: 20px;
+
+        // modifier
+        &_like {
+            &:hover {
+                background-image: url('../icons/like.svg');
+            }
+        }
     }
 }
