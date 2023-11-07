@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  entry: './index.js', // Входной файл JavaScript
+  entry: './src/js/index.js', // Входной файл JavaScript
   output: {
     filename: 'bundle.[contenthash].js', // Имя собранного JavaScript файла
     path: path.resolve(__dirname, 'dist'), // Путь для сохранения собранного файла
